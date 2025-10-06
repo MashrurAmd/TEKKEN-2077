@@ -395,7 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 763854608}
   player: {fileID: 857434586}
-  detectionRange: 12
+  detectionRange: 8
   attackCooldown: 2
 --- !u!136 &763854611
 CapsuleCollider:
@@ -3097,7 +3097,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.14
   m_Center: {x: 0, y: 0, z: 0}
@@ -3600,7 +3600,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
