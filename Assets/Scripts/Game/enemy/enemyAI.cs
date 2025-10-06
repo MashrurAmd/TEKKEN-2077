@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
         {
             Vector3 direction = (player.position - transform.position).normalized;
             direction.y = 0;
-            transform.rotation = Quaternion.LookRotation(direction);
+            //transform.rotation = Quaternion.LookRotation(direction);
 
             // Attack if cooldown finished
             if (Time.time >= nextAttackTime)
