@@ -396,6 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kickForce: 5
+  punchForce: 0.5
 --- !u!1 &857434585
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +455,8 @@ MonoBehaviour:
   rightFootTrigger: {fileID: 0}
   KickBox: {fileID: 7519898546270298071}
   isKicking: 0
+  PunchBox: {fileID: 4494945603096763994}
+  isPunching: 0
 --- !u!143 &857434589
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2554,7 +2557,7 @@ GameObject:
   - component: {fileID: 6502182839198499415}
   m_Layer: 0
   m_Name: mixamorig:LeftHand
-  m_TagString: Untagged
+  m_TagString: hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

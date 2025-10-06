@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     public GameObject KickBox; // assign kick hitbox here
     public bool isKicking = false;
 
+    public GameObject PunchBox; // assign punch hitbox here
+    public bool isPunching = false;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -121,8 +124,27 @@ public class PlayerController : MonoBehaviour
     }
 
     // Called by punch button or P key
+
+
     public void Punch()
     {
-        animator.SetTrigger("punch");
+        if (!isPunching)
+        {
+            isPunching = true;
+            PunchBox.GetComponent<Collider>().enabled = true; // Enable punch hitbox
+            animator.SetTrigger("punch");
+            StartCoroutine(ResetPunch());
+        }
     }
+
+    private IEnumerator ResetPunch()
+    {
+        yield return new WaitForSeconds(0.5f); // adjust based on punch animation length
+        isPunching = false;
+        PunchBox.GetComponent<Collider>().enabled = false; // Disable hitbox
+        animator.ResetTrigger("punch");
+    }
+
+
+
 }
