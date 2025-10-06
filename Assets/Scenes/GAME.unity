@@ -397,6 +397,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kickForce: 5
   punchForce: 0.5
+--- !u!95 &763854608 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 31caeeec1ee6f3443888aead2ee0ff18, type: 3}
+  m_PrefabInstance: {fileID: 1944584373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &763854610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763854600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd84d27b39bbb804fbe4204c86de5e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 763854608}
+  player: {fileID: 857434586}
+  detectionRange: 12
+  attackCooldown: 2
 --- !u!1 &857434585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1217,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31caeeec1ee6f3443888aead2ee0ff18, type: 3}
       insertIndex: -1
       addedObject: {fileID: 763854607}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31caeeec1ee6f3443888aead2ee0ff18, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 763854610}
   m_SourcePrefab: {fileID: 100100000, guid: 31caeeec1ee6f3443888aead2ee0ff18, type: 3}
 --- !u!1 &1951795244
 GameObject:
