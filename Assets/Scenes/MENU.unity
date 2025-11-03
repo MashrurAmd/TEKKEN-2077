@@ -5701,8 +5701,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1518277814}
   - component: {fileID: 1518277816}
-  - component: {fileID: 1518277815}
   - component: {fileID: 1518277817}
+  - component: {fileID: 1518277815}
   m_Layer: 5
   m_Name: Loading Pannel
   m_TagString: Untagged
