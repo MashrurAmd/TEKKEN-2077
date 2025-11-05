@@ -15,7 +15,12 @@ public class PlayerController : MonoBehaviour
     [Header("UI Controls")]
     public Joystick joystick; // assign your joystick prefab here
     public Button kickButton; // assign your kick button here
+
     public Button punchButton; // assign your punch button here (new)
+
+    public Button bigpunchBtn;
+    public Button elbowpunchBtn;
+    public Button ultiBtn;
 
     public FootTrigger leftFootTrigger;   // assign in Inspector
     public FootTrigger rightFootTrigger;  // optional second foot
@@ -25,6 +30,14 @@ public class PlayerController : MonoBehaviour
 
     public GameObject PunchBox; // assign punch hitbox here
     public bool isPunching = false;
+
+    public GameObject bigPunchBox; // assign punch hitbox here
+    public bool isbigPunching = false;
+
+    //public GameObject elbowPunchBox; // assign punch hitbox here
+    public bool iselbowPunching = false;
+
+    public bool isulti = false;
 
     void Start()
     {
@@ -38,6 +51,15 @@ public class PlayerController : MonoBehaviour
         // Assign punch button listener
         if (punchButton != null)
             punchButton.onClick.AddListener(Punch);
+
+        if (bigpunchBtn != null)
+            bigpunchBtn.onClick.AddListener(bigPunch);
+
+        if (elbowpunchBtn != null)
+            elbowpunchBtn.onClick.AddListener(elbowPunch);
+
+        if (ultiBtn != null)
+            ultiBtn.onClick.AddListener(Ulti);
     }
 
     void Update()
@@ -86,7 +108,7 @@ public class PlayerController : MonoBehaviour
         clampedPos.z = Mathf.Clamp(clampedPos.z, zMin, zMax);
         transform.position = clampedPos;
 
-        // Kick via Space key (optional)
+       /* // Kick via Space key (optional)
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Kick();
@@ -98,7 +120,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             Punch();
-        }
+        }*/
     }
 
     // Called by kick button or Space key
@@ -146,5 +168,62 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
+    public void bigPunch()
+    {
+        if (!isbigPunching)
+        {
+            isbigPunching = true;
+            bigPunchBox.GetComponent<Collider>().enabled = true; // Enable punch hitbox
+            animator.SetTrigger("bigpunch");
+            StartCoroutine(ResetbigPunch());
+        }
+    }
+
+    private IEnumerator ResetbigPunch()
+    {
+        yield return new WaitForSeconds(0.5f); // adjust based on punch animation length
+        isbigPunching = false;
+       // bigPunchBox.GetComponent<Collider>().enabled = false; // Disable hitbox
+        animator.ResetTrigger("bigpunch");
+    }
+
+    public void elbowPunch()
+    {
+        if (!iselbowPunching)
+        {
+            iselbowPunching = true;
+           // elbowPunchBox.GetComponent<Collider>().enabled = true; // Enable punch hitbox
+            animator.SetTrigger("elbowpunch");
+            StartCoroutine(ResetelbowPunch());
+        }
+    }
+
+    private IEnumerator ResetelbowPunch()
+    {
+        yield return new WaitForSeconds(0.5f); // adjust based on punch animation length
+        iselbowPunching = false;
+        //elbowPunchBox.GetComponent<Collider>().enabled = false; // Disable hitbox
+        animator.ResetTrigger("elbowpunch");
+    }
+
+    public void Ulti()
+    {
+        if (!isulti)
+        {
+            isulti = true;
+            // elbowPunchBox.GetComponent<Collider>().enabled = true; // Enable punch hitbox
+            animator.SetTrigger("ulti");
+            StartCoroutine(Resetulti());
+        }
+    }
+
+    private IEnumerator Resetulti()
+    {
+        yield return new WaitForSeconds(0.5f); // adjust based on punch animation length
+        isulti = false;
+        //elbowPunchBox.GetComponent<Collider>().enabled = false; // Disable hitbox
+        animator.ResetTrigger("ulti");
+    }
 
 }
